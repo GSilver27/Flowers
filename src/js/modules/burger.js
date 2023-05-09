@@ -16,5 +16,5 @@ const burger = (menuSelector, burgerSelector) => {
         }
     })
 };
- 
+
 export default burger;
