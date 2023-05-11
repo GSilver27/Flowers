@@ -1,4 +1,5 @@
 import {postData} from '../services/requests'
+import draggedName from '../services/draggedName';
 
 const forms = () => {
     const form = document.querySelectorAll('form'),
@@ -33,11 +34,8 @@ const forms = () => {
     upload.forEach(item => {
         item.addEventListener('input', () => {
             console.log(item.files[0]);
-            let dots;
-            const arr = item.files[0].name.split('.');
-            arr[0].length > 6 ? dots = '...' : dots = '.';
-            const name = arr[0].substring(0, 6) + dots + arr[1];
-            item.previousElementSibling.textContent = name;
+
+            draggedName(item);
         })
     });
 
@@ -65,7 +63,8 @@ const forms = () => {
 
             const formData = new FormData(item);
             let api;
-            item.closest('.popup-design') || item.classList.contains('calc_form') ? api = path.designer : api = path.question;
+            item.closest('.popup-design') || item.classList.contains('calc_form') ?
+            api = path.designer : api = path.question;
             console.log(api);
 
             postData(api, formData)

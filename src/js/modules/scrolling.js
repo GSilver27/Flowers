@@ -12,7 +12,7 @@ const scrolling = (upSelector) => {
         }
     });
 
-    // Скролинг c requestAnimationFrame()
+    // Скролинг c RequestAnimationFrame()
 
     let links = document.querySelectorAll('[href^="#"]'),
         speed = 0.19;
